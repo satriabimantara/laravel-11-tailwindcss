@@ -18,4 +18,5 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'index']);
 // Route model binding
 Route::get('/posts/{post:slug}', [PostController::class, 'detail']);
-Route::get('/authors/{user}', [PostController::class, 'user_posts']);
+Route::get('/post-category/{post_category:slug}', [PostController::class, 'category_posts']);
+Route::get('/authors/{user:username}', [PostController::class, 'user_posts']);
