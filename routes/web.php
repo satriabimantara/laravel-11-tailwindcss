@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,8 +15,6 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/posts', function () {
-    return view('blog/list', [
-        'title' => 'Blog List'
-    ]);
-});
+Route::get('/posts', [PostController::class, 'index']);
+// Route model binding
+Route::get('/posts/{post:slug}', [PostController::class, 'detail']);
