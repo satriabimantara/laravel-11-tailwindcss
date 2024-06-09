@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,6 +24,13 @@ class PostController extends Controller
         return view('blog/post', [
             'title' => 'Single Post',
             'post' => $post
+        ]);
+    }
+    public function user_posts(User $user)
+    {
+        return view('blog/list', [
+            'title' => 'Blog Post by ' . $user->name,
+            'posts' => $user->posts
         ]);
     }
 }

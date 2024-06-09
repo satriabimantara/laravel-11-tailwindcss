@@ -18,3 +18,4 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'index']);
 // Route model binding
 Route::get('/posts/{post:slug}', [PostController::class, 'detail']);
+Route::get('/authors/{user}', [PostController::class, 'user_posts']);
